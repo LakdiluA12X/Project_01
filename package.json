@@ -1,0 +1,11 @@
+{
+  "name": "project_01",
+  "version": "1.0.0",
+  "description": "Create End Points in NodeJS with Swagger documentation to Interact with MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
