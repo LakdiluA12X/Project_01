@@ -1,0 +1,119 @@
+openapi: 3.0.0
+info:
+  title: Carbon Credits
+  description: Carbon Credits Project for Pre-Training
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: Projects
+    description: Apis for projects Management
+  - name: User
+    description: Apis for user Management
+paths:
+  /getProject/{company}:
+    get:
+      description: Get a Project by its Name
+      tags: 
+        - Projects
+      parameters:
+        - in: path
+          name: company
+          required: true
+          schema:
+            type: string
+          description: The name of the company
+      responses:
+        '200':
+          description: Project found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  company:
+                    type: string
+                  country:
+                    type: string
+                  state:
+                    type: string
+                  credits:
+                    type: integer
+                  _id:
+                    type: string
+        '400':
+          description: Project not found
+  /getAllProject:
+    get:
+      description: Get all Projects
+      tags: 
+        - Projects
+      responses:
+        '200':
+          description: Projects found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    company:
+                      type: string
+                    country:
+                      type: string
+                    state:
+                      type: string
+                    credits:
+                      type: integer
+                    _id:
+                      type: string
+        '400':
+          description: No Projects found.  
+  /addProject:
+    post:
+      tags: 
+        - Projects
+      description: Add a new project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company:
+                  type: string
+                country:
+                  type: string
+                state:
+                  type: string
+                credits:
+                  type: integer
+      responses:
+        '200':
+          description: Project added successfully
+        '400':
+          description: Bad request
+  /addUser:
+    post:
+      tags: 
+        - User
+      description: Add a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                role:
+                  type: string
+                credits:
+                  type: integer
+      responses:
+        '200':
+          description: User added successfully
+        '400':
+          description: Bad request
