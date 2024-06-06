@@ -42,7 +42,7 @@ paths:
                     type: string
         '400':
           description: Project not found
-  /getAllProject:
+  /getAllProjects:
     get:
       description: Get all Projects
       tags: 
