@@ -1,6 +1,8 @@
-import user from '../model/users.js'
+import user from '../model/users';
+import { Request, Response } from 'express';
 
-export async function addUser (req, res){
+
+export async function addUser (req: Request, res: Response): Promise<Response>{
     console.log("Adding User....");
     console.log(req.body)
     try{
